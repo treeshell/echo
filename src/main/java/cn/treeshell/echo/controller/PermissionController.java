@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 @RequestMapping("/role")
-public class PermissionController {
+public class PermissionController extends BaseController {
 
 }
 

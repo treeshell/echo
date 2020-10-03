@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 @RequestMapping("/message")
-public class PrivateMessageController {
+public class PrivateMessageController extends BaseController {
 
 }
 

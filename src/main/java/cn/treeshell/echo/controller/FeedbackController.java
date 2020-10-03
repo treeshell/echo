@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 @RequestMapping("/feedback")
-public class FeedbackController {
+public class FeedbackController extends BaseController {
 
 }
 

@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 @RequestMapping("/link")
-public class FriendLinkController {
+public class FriendLinkController extends BaseController {
 
 }
 
