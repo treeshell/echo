@@ -17,15 +17,15 @@ public class BaseController {
         return (new ApiResponse()).result(responseCode, data);
     }
 
-    public ApiResponse success() {
+    protected ApiResponse success() {
         return this.result(ApiResponseCode.CODE_SUCCESS, null);
     }
 
-    public ApiResponse success(Object data) {
+    protected ApiResponse success(Object data) {
         return this.result(ApiResponseCode.CODE_SUCCESS, data);
     }
 
-    public ApiResponse fail(ApiResponseCode responseCode) {
+    protected ApiResponse fail(ApiResponseCode responseCode) {
         return this.result(responseCode, null);
     }
 }

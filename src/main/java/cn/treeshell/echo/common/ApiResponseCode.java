@@ -23,7 +23,8 @@ public enum ApiResponseCode {
     CODE_ACCOUNT_OR_PASSWORD_ERROR(100001, "用户名或者密码错误"),
     CODE_ACCOUNT_REGISTERED(100002, "账号已注册"),
     CODE_ACCOUNT_VERIFY_EXPIRED(100003, "验证码已失效"),
-    CODE_ACCOUNT_LOGIN_EXPIRED(100004, "登录已过期，请重新登录");
+    CODE_ACCOUNT_LOGIN_EXPIRED(100004, "登录已过期，请重新登录"),
+    CODE_ACCOUNT_NOT_FOUND(100005, "该账号未注册");
 
     private int code;
     private String message;

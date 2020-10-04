@@ -1,5 +1,6 @@
-package cn.treeshell.echo.controller;
+package cn.treeshell.echo.controller.admin;
 
+import cn.treeshell.echo.controller.BaseController;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -9,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @author panjing
  */
 @RestController
-@RequestMapping("/feedback")
+@RequestMapping("/admin/feedback")
 public class FeedbackController extends BaseController {
 
 }
