@@ -1,0 +1,23 @@
+spring:
+  datasource:
+    driverClassName: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/echo?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Shanghai
+    username: root
+    password: mysql
+    hikari:
+      minimum-idle: 5
+      idle-timeout: 600000
+      maximum-pool-size: 10
+      connection-timeout: 30000
+      max-lifetime: 1800000
+
+### MyBatis Plus 相关配置 ###
+mybatis-plus:
+  mapper-locations: classpath:mapper/*Mapper.xml
+  global-config:
+    db-config:
+      id-type: assign_id # MyBatis Plus自3.3.0版本开始,默认使用雪花算法+UUID
+      table-underline: true
+    banner: false
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl

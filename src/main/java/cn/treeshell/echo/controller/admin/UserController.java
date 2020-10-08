@@ -5,6 +5,8 @@ import cn.treeshell.echo.controller.BaseController;
 import cn.treeshell.echo.model.param.LoginParam;
 import cn.treeshell.echo.model.param.RegisterParam;
 import cn.treeshell.echo.service.UserService;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -19,6 +21,7 @@ import javax.validation.Valid;
  *
  * @author panjing
  */
+@ApiOperation("用户相关接口")
 @RestController
 @RequestMapping("/admin/user")
 @RequiredArgsConstructor(onConstructor = @__(@Autowired))
@@ -29,16 +32,18 @@ public class UserController extends BaseController {
     /**
      * 登录
      */
+    @ApiOperation("登录")
     @PostMapping("/login")
-    public ApiResponse login(@RequestBody @Valid LoginParam loginParam) {
+    public ApiResponse login(@RequestBody @Valid @ApiParam LoginParam loginParam) {
         return this.success(userService.login(loginParam));
     }
 
     /**
      * 注册
      */
+    @ApiOperation("注册")
     @PostMapping("/register")
-    public ApiResponse register(@RequestBody @Valid RegisterParam registerParam) {
+    public ApiResponse register(@RequestBody @Valid @ApiParam RegisterParam registerParam) {
         userService.register(registerParam);
         return this.success();
     }
