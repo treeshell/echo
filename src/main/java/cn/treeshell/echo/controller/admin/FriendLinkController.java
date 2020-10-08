@@ -1,7 +1,6 @@
 package cn.treeshell.echo.controller.admin;
 
 
-import cn.treeshell.echo.controller.BaseController;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -12,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 @RequestMapping("/admin/link")
-public class FriendLinkController extends BaseController {
+public class FriendLinkController {
 
 }
 

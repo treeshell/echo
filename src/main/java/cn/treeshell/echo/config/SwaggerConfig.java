@@ -31,7 +31,7 @@ public class SwaggerConfig {
 
         return new Docket(DocumentationType.OAS_30)
                 .select()
-                .apis(RequestHandlerSelectors.basePackage("cn.treeshell.echo.controller"))
+                .apis(RequestHandlerSelectors.basePackage("cn.treeshell.echo"))
                 .paths(PathSelectors.any())
                 .build()
                 .forCodeGeneration(true)

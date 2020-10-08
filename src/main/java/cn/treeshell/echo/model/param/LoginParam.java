@@ -16,12 +16,12 @@ import javax.validation.constraints.Size;
 @Data
 public class LoginParam {
 
-    @ApiModelProperty("用户名")
+    @ApiModelProperty(value = "用户名", required = true)
     @NotBlank(message = "用户名或邮箱不能为空")
     @Size(max = 30, message = "用户名或邮箱的字符长度不能超过 {max}")
     private String username;
 
-    @ApiModelProperty("密码")
+    @ApiModelProperty(value = "密码", required = true)
     @NotBlank(message = "密码不能为空")
     @Size(max = 80, message = "用户密码长度不能超过 {max}")
     private String password;
