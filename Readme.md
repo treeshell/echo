@@ -7,7 +7,7 @@
 ### 技术选型
 1. 构建工具：Maven
 2. 服务端框架：SpringBoot
-3. ORM框架：MybatisPlus
+3. ORM框架：JOOQ
 4. 认证授权框架：SpringSecurity
 4. 数据库：MySQL、MongoDB
 5. 缓存：Redis、JetCache

@@ -26,7 +26,7 @@ public class LoginParam {
     @Size(max = 80, message = "用户密码长度不能超过 {max}")
     private String password;
 
-    // TODO v2版本开发 登录验证码校验
+    // TODO V2开发 登录验证码校验
     // @Size(min = 6, max = 6, message = "验证码长度应为 {max} 位")
     // private String verifyCode;
 }

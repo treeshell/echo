@@ -18,7 +18,7 @@
         <java.version>1.8</java.version>
         <hutool.version>5.2.5</hutool.version>
         <swagger.version>3.0.0</swagger.version>
-        <mybatisplus-spring-boot-starter.version>3.4.0</mybatisplus-spring-boot-starter.version>
+        <jooq.version>3.13.4</jooq.version>
     </properties>
 
     <dependencies>
@@ -41,9 +41,8 @@
             <artifactId>mysql-connector-java</artifactId>
         </dependency>
         <dependency>
-            <groupId>com.baomidou</groupId>
-            <artifactId>mybatis-plus-boot-starter</artifactId>
-            <version>${mybatisplus-spring-boot-starter.version}</version>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-jooq</artifactId>
         </dependency>
         <dependency>
             <groupId>org.flywaydb</groupId>

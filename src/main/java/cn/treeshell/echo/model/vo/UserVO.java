@@ -1,10 +1,11 @@
 package cn.treeshell.echo.model.vo;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
-import java.time.LocalDateTime;
+import java.sql.Timestamp;
 
 /**
  * @author panjing
@@ -13,7 +14,7 @@ import java.time.LocalDateTime;
 @Data
 public class UserVO {
     @ApiModelProperty("id")
-    private String id;
+    private Integer id;
     @ApiModelProperty("电话")
     private String mobile;
     @ApiModelProperty("用户名")
@@ -27,9 +28,12 @@ public class UserVO {
     @ApiModelProperty("性别")
     private String introduction;
     @ApiModelProperty("性别 0：未知，1：男，2：女")
-    private Boolean gender;
-    @ApiModelProperty("是否可用 0：可用，1：禁用")
-    private Boolean status;
+    private Byte gender;
     @ApiModelProperty("最后登录日期")
-    private LocalDateTime lastLoginTime;
+    private Timestamp lastLoginTime;
+
+    @JsonIgnore
+    private Timestamp createTime;
+    @JsonIgnore
+    private String password;
 }

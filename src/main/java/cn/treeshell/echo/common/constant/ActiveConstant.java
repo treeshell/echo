@@ -1,7 +1,5 @@
 package cn.treeshell.echo.common.constant;
 
-import lombok.Getter;
-
 /**
  * Active constant.
  *
