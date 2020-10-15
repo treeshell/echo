@@ -1,6 +1,8 @@
 package cn.treeshell.echo.common.constant;
 
 /**
+ * User constant.
+ *
  * @author panjing
  */
 public class UserConstant {

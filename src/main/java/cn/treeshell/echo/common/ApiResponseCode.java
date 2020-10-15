@@ -24,7 +24,13 @@ public enum ApiResponseCode {
     CODE_ACCOUNT_REGISTERED(100002, "账号已注册"),
     CODE_ACCOUNT_VERIFY_EXPIRED(100003, "验证码已失效"),
     CODE_ACCOUNT_LOGIN_EXPIRED(100004, "登录已过期，请重新登录"),
-    CODE_ACCOUNT_NOT_FOUND(100005, "该账号未注册");
+    CODE_ACCOUNT_NOT_FOUND(100005, "该账号未注册"),
+
+    /**
+     * 20开头：分类相关
+     */
+    CODE_CATEGORY_NAME_EXIST(200001, "分类名已存在"),
+    CODE_CATEGORY_NOT_DELETE(200002, "当前分类下含有子分类或者文章，无法删除");
 
     private int code;
     private String message;
