@@ -22,7 +22,7 @@ import java.util.Objects;
 import java.util.Optional;
 
 /**
- * 用户表 服务实现类
+ * 用户相关业务类
  *
  * @author panjing
  */

@@ -43,7 +43,7 @@ public class CategoryRepository {
      * @param name 分类名
      * @return 分类id
      */
-    public Optional<Integer> getCategory(String name) {
+    public Optional<Integer> getCategoryIdByName(String name) {
         return dslContext.select(CATEGORY.ID).from(CATEGORY)
                 .where(CATEGORY.NAME.eq(name)).fetchOptionalInto(Integer.class);
     }

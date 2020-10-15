@@ -6,7 +6,7 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
 /**
- * 创建/更新入参
+ * 创建/更新分类入参
  *
  * @author panjing
  */

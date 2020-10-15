@@ -9,6 +9,7 @@ import cn.treeshell.echo.exception.CategoryNotDeleteException;
 import cn.treeshell.echo.model.entity.tables.records.CategoryRecord;
 import cn.treeshell.echo.model.param.CategoryParam;
 import cn.treeshell.echo.model.vo.CategoryVO;
+import cn.treeshell.echo.model.vo.TagVO;
 import cn.treeshell.echo.repository.CategoryRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +21,7 @@ import java.util.Objects;
 import java.util.Optional;
 
 /**
- * 分类表 服务实现类
+ * 分类相关业务类
  *
  * @author panjing
  */
@@ -29,13 +30,14 @@ import java.util.Optional;
 public class CategoryService {
 
     private final CategoryRepository categoryRepository;
+    private final TagService tagService;
 
-    /**---
+    /**
      * 新增分类
      * @param categoryParam 创建/更新分类参数
      */
     public void create(@NonNull CategoryParam categoryParam) {
-        // 1.校验用户名是否存在
+        // 1.校验分类名是否存在
         checkNameExist(categoryParam.getName());
 
         // 2.新增分类
@@ -48,6 +50,7 @@ public class CategoryService {
     /**
      * 更新分类
      * @param categoryParam 创建/更新分类参数
+     * @param id 分类id
      */
     public void update(@NonNull CategoryParam categoryParam, @NonNull Integer id) {
         // 1.校验分类名是否存在
@@ -66,7 +69,7 @@ public class CategoryService {
      * @param name 分类名
      */
     private void checkNameExist(String name) {
-        Optional<Integer> categoryOptional = categoryRepository.getCategory(name);
+        Optional<Integer> categoryOptional = categoryRepository.getCategoryIdByName(name);
         if (categoryOptional.isPresent()) {
             // 分类名已存在
             throw new CategoryNameExistException(ApiResponseCode.CODE_CATEGORY_NAME_EXIST.getMessage());
@@ -79,7 +82,7 @@ public class CategoryService {
      * @param id 分类id
      */
     public void delete(@NonNull Integer id) {
-        // 1.校验当前分类下是否还有子分类
+        // 1.校验当前分类下是否还有分类、标签、文章等
         checkHaveChildCategory(id);
 
         // 2.如果当前分类下没有子分类，则删除
@@ -95,7 +98,8 @@ public class CategoryService {
      */
     private void checkHaveChildCategory(Integer id) {
         List<CategoryVO> categoryVOList = categoryRepository.listCategoryVOByParentId(id);
-        if (CollUtil.isNotEmpty(categoryVOList)) {
+        List<TagVO> tagVOList = tagService.listTagVO(id);
+        if (CollUtil.isNotEmpty(categoryVOList) || CollUtil.isNotEmpty(tagVOList)) {
             throw new CategoryNotDeleteException(ApiResponseCode.CODE_CATEGORY_NOT_DELETE.getMessage());
         }
     }
@@ -103,9 +107,10 @@ public class CategoryService {
     /**
      * 根据父分类id查询子分类集合
      * TODO V2开发 分类与文章的关联，如分类中文章数量展示等
+     * @param parentId 父分类id
      * @return 子分类集合
      */
-    public List<CategoryVO> listCategoryVO(Integer parentId) {
+    public List<CategoryVO> listCategoryVO(@NonNull Integer parentId) {
         return categoryRepository.listCategoryVOByParentId(parentId);
     }
 

@@ -30,7 +30,14 @@ public enum ApiResponseCode {
      * 20开头：分类相关
      */
     CODE_CATEGORY_NAME_EXIST(200001, "分类名已存在"),
-    CODE_CATEGORY_NOT_DELETE(200002, "当前分类下含有子分类或者文章，无法删除");
+    CODE_CATEGORY_NOT_DELETE(200002, "当前分类下含有子分类/标签/文章，无法删除"),
+
+    /**
+     * 30开头：标签相关
+     */
+    CODE_TAG_NAME_EXIST(300001, "标签名已存在");
+
+
 
     private int code;
     private String message;
